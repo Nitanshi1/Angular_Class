@@ -1,0 +1,19 @@
+<h2>My--Team</h2>
+
+<ul>
+    <li *ngFor="let member of members">
+        <button type="button" (click) = "onSelect(member)">
+            <span>
+                {{member.id}}
+            </span>
+            <span>
+                {{member.name}}
+            </span>
+        </button>
+    </li>
+</ul>
+
+
+
+
+<app-member-details [member]="selectedMember"></app-member-details>
