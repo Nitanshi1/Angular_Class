@@ -5,6 +5,7 @@ import { MEMBERS } from '../mymembers';
 import { NgFor , NgIf } from '@angular/common';
 import { MemberDetailsComponent } from '../member-details/member-details.component';
 import { MemberService } from '../number.service';
+import { MessageService } from '../message.service';
 
 @Component({
   selector: 'app-member',
@@ -16,7 +17,7 @@ import { MemberService } from '../number.service';
 export class MemberComponent {
   members: member[] = [];
 
-  constructor(private memberService: MemberService){}
+  constructor(private memberService: MemberService,private messageService:MessageService){}
 
   ngOnInit(): void{
     this.getMembers();
@@ -24,10 +25,12 @@ export class MemberComponent {
 //commonly used to call service after the constructor is called and intialized
   getMembers(): void{
    this.memberService.getMembers().subscribe(members =>this.members=members);
+  
   }
 //Subscribe reflects that notification is sent
   selectedMember?: member;
   onSelect(member: member): void {
     this.selectedMember = member;
+    this.messageService.add(`Message shown is........${member.name}`)
   }
 }
