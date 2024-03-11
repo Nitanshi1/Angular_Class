@@ -1,0 +1,14 @@
+.unique-class{
+    background-color: orange;
+    margin: 2%;
+    padding: 10px;
+    text-align: center;
+    width:90%;
+    height: 10%;
+   
+  }
+  .butt3{
+    border: 10%;
+    border-radius: 5px;
+    border-color: black;
+}

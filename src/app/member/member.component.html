@@ -1,8 +1,9 @@
-<h2>My--Team</h2>
+<h2 align="center">My--Team</h2>
 
-<ul>
-    <li *ngFor="let member of members">
-        <button type="button" (click) = "onSelect(member)">
+<div class="unique-class2">
+<ul class="unique-list">
+    <li  class="unique-list-item" *ngFor="let member of members">
+        <button class="butt1" type="button" (click) = "onSelect(member)">
             <span>
                 {{member.id}}
             </span>
@@ -12,6 +13,7 @@
         </button>
     </li>
 </ul>
+</div>
 
 
 
