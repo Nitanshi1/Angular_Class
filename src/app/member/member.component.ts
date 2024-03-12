@@ -6,11 +6,12 @@ import { NgFor , NgIf } from '@angular/common';
 import { MemberDetailsComponent } from '../member-details/member-details.component';
 import { MemberService } from '../number.service';
 import { MessageService } from '../message.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-member',
   standalone: true,
-  imports: [FormsModule , NgFor , NgIf , MemberDetailsComponent],
+  imports: [FormsModule , NgFor , NgIf , MemberDetailsComponent,RouterModule],
   templateUrl: './member.component.html',
   styleUrl: './member.component.css'
 })
@@ -28,9 +29,8 @@ export class MemberComponent {
   
   }
 //Subscribe reflects that notification is sent
-  selectedMember?: member;
-  onSelect(member: member): void {
-    this.selectedMember = member;
-    this.messageService.add(`Message shown is........${member.name}`)
-  }
+  // selectedMember?: member;
+  // onSelect(member: member): void {
+  //   this.selectedMember = member;
+  //   this.messageService.add(`Message shown is........${member.name}`)
 }

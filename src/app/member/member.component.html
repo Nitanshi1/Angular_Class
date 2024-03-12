@@ -3,14 +3,14 @@
 <div class="unique-class2">
 <ul class="unique-list">
     <li  class="unique-list-item" *ngFor="let member of members">
-        <button class="butt1" type="button" (click) = "onSelect(member)">
+      <a routerLink="/detail/{{member.id}}">
             <span>
                 {{member.id}}
             </span>
             <span>
                 {{member.name}}
             </span>
-        </button>
+        </a>
     </li>
 </ul>
 </div>
@@ -18,4 +18,4 @@
 
 
 
-<app-member-details [member]="selectedMember"></app-member-details>
+<!-- <app-member-details [member]="selectedMember"></app-member-details> -->

@@ -4,6 +4,7 @@ import { MEMBERS } from './mymembers';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,5 +16,11 @@ export class MemberService {
     const members = of(MEMBERS);
     this.messageService.add('MemberService: fetched Members....');
     return members;
+  }
+
+  getMem(id:number):Observable<member>{
+  const mymember=MEMBERS.find((mem)=>mem.id===id)!;
+  this.messageService.add(`Member displayed: fetched Member id =${id}....`);
+  return of(mymember);
   }
 }

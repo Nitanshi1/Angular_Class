@@ -2,7 +2,11 @@
     <h2 align="center">{{member.name | uppercase}} Details</h2>
     <div class="divclass">id: {{member.id}}</div>
     <div class="divclass">
+        <button type="button" (click)="goBack()">Go Back!</button>
         <label for="member-name">Member name: </label>
         <input id="member-name" [(ngModel)]="member.name" placeholder="name">
     </div>
 </div>
+
+
+
