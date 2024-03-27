@@ -9,8 +9,10 @@ import { NgFor } from '@angular/common';
   styleUrl: './message.component.css'
 })
 export class MessageComponent {
- constructor (public messageService: MessageService){}
- clear(){
+ constructor (public messageService: MessageService){};
+
+  clear(){
   this.messageService.clear(); 
+  }
  }
-}
+

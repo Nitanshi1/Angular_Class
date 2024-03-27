@@ -3,7 +3,9 @@
 <div class="unique-class2">
 <ul class="unique-list">
     <li  class="unique-list-item" *ngFor="let member of members">
+        
       <a routerLink="/detail/{{member.id}}">
+       
             <span>
                 {{member.id}}
             </span>
@@ -11,10 +13,17 @@
                 {{member.name}}
             </span>
         </a>
+        <button type="button" (click)="delete(member)"> Don't Want</button>
     </li>
 </ul>
 </div>
 
+<div>
+    
+    <label for="new-member">Member Name:::</label>
+    <input id="new-member" #memberName>
+    <button type="button" (click)="add(memberName.value)">Add member</button>
+</div>
 
 
 

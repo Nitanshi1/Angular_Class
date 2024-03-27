@@ -11,7 +11,7 @@ export class GalleryService {
 
   constructor(private messageService:MessageService) { }
   getGallery():Observable<gallerys[]>{
-    this.messageService.add('Gallerys are displsayed..');
+    this.messageService.toadd('Gallerys are displsayed..');
     return of(Mygallery);
   }
 }

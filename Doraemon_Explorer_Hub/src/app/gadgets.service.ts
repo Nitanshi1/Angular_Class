@@ -12,12 +12,12 @@ export class GadgetsService {
   constructor(private messageService: MessageService) { }
  
   getGadgets():Observable<gadgets[]>{
-    this.messageService.add('gadgets are shown');
+    this.messageService.toadd('gadgets are shown');
     return of(Mygadgets);
   }
   getgadgetsdetail(id: number): Observable<gadgets>{
     const gadg=Mygadgets.find(g=>g.id===id)!;
-    this.messageService.add(`gadget displayed is ${id}`);
+    this.messageService.toadd(`gadget displayed is ${id}`);
     return of(gadg);
   }
 }

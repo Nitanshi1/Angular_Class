@@ -33,4 +33,18 @@ export class MemberComponent {
   // onSelect(member: member): void {
   //   this.selectedMember = member;
   //   this.messageService.add(`Message shown is........${member.name}`)
+
+
+  add(name: string):void{
+    name=name.trim();
+    if(!name){
+      return
+    }
+    this.memberService.addMember({name} as member).subscribe(member=>this.members.push(member));
+  }
+
+  delete(member:member):void{
+    this.members=this.members.filter(m=>m!= member);
+    this.memberService.deleteMember(member.id).subscribe();
+  }
 }

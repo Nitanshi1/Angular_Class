@@ -7,10 +7,13 @@ export class MessageService {
 
   constructor() { }
   message?:string[]=[];
-  add(msg:string){
-    this.message?.push(msg);
+
+  toadd(messgs:string){
+    this.message?.push(messgs);
   }
   clear(){
     this.message=[];
   }
+
 }
+

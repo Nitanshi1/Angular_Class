@@ -3,6 +3,7 @@
     <div class="divclass">id: {{member.id}}</div>
     <div class="divclass">
         <button type="button" (click)="goBack()">Go Back!</button>
+        <button type="button" (click)="save()">Save!!</button>
         <label for="member-name">Member name: </label>
         <input id="member-name" [(ngModel)]="member.name" placeholder="name">
     </div>

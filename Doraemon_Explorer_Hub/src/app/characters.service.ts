@@ -13,12 +13,12 @@ export class CharactersService {
 
   constructor(private messageService:MessageService) { }
   getcharacter():Observable<fictonalcharacter[]>{
-    this.messageService.add('characters are shown');
+    this.messageService.toadd('characters are shown');
     return of(MyCharacter);
   }
   getcharactersdetail(id: number): Observable<fictonalcharacter>{
     const chara=MyCharacter.find(c=>c.id===id)!;
-    this.messageService.add(`character displayed is ${id}`);
+    this.messageService.toadd(`character displayed is ${id}`);
     return of(chara);
   }
 }
