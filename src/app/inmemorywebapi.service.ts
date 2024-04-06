@@ -8,7 +8,7 @@ export class InmemorywebapiService implements InMemoryDbService{
   createDb(){
     const members = [
       { id:1 , name: 'Nitanshi'},
-      { id:2 , name: 'DIsha'},
+      { id:2 , name: 'Disha'},
       { id:3 , name: 'Ankit'},
       { id:4 , name: 'Vansh'}
     ];
@@ -16,6 +16,6 @@ export class InmemorywebapiService implements InMemoryDbService{
   }
   
   genId(members: member[]): number{
-    return members.length > 0 ? Math.max(...members.map(member => member.id))+1 : 1;
-}//... javascript spread operator for entire array & map function used to jhatna
+    return members.length > 0 ? Math.max(...members.map(member => member.id))+ 1: 1;
+}//... javascript spread operator for entire array & map function used to jhatna :or condition
 }
