@@ -25,3 +25,44 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+get command--
+
+![Screenshot 2024-04-10 235950](https://github.com/Nitanshi1/Angular_Class/assets/112059918/bc896ff9-b48b-443e-9dac-381cd543ce53)
+![Screenshot 2024-04-11 000038](https://github.com/Nitanshi1/Angular_Class/assets/112059918/2db2c178-3846-4900-978c-4df439a8be3b)
+
+postman get command--
+![Screenshot 2024-04-11 000731](https://github.com/Nitanshi1/Angular_Class/assets/112059918/ecfdaa36-6199-490b-a7f7-a9c68558f9ab)
+![Screenshot 2024-04-11 000819](https://github.com/Nitanshi1/Angular_Class/assets/112059918/c5040ac9-4ce5-435b-98d1-9ad6718b2562)
+
+
+
+
+delete command--
+
+![Screenshot 2024-04-11 000202](https://github.com/Nitanshi1/Angular_Class/assets/112059918/d86472fe-ceea-4e57-ba9f-68d8be1294fd)
+
+postman delete command..
+![Screenshot 2024-04-11 000906](https://github.com/Nitanshi1/Angular_Class/assets/112059918/955f9936-0d11-4261-bab5-d6694725157f)
+
+
+
+post command--
+![Screenshot 2024-04-11 000540](https://github.com/Nitanshi1/Angular_Class/assets/112059918/b020dc2f-704d-499a-900c-85060a361221)
+ postman post command--
+ ![Screenshot 2024-04-11 001200](https://github.com/Nitanshi1/Angular_Class/assets/112059918/ca6686f6-e19e-4178-b4b7-29b5e1d495f6)
+
+
+put command--
+![Screenshot 2024-04-11 000622](https://github.com/Nitanshi1/Angular_Class/assets/112059918/238074ec-f2f7-4b9f-b3ea-8c36b03e01f8)
+
+postman put command
+![Screenshot 2024-04-11 001720](https://github.com/Nitanshi1/Angular_Class/assets/112059918/183830f7-ab61-4ae1-989c-50f08c71094d)
+![Screenshot 2024-04-11 001533](https://github.com/Nitanshi1/Angular_Class/assets/112059918/ef229f29-11f0-4b5f-8329-b46957447eda)
+
+
+
+
+
+
