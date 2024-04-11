@@ -64,5 +64,24 @@ postman put command
 
 
 
+dictionnaryyyyyyyyy
+delete command---
+![Screenshot 2024-04-11 121927](https://github.com/Nitanshi1/Angular_Class/assets/112059918/318f4783-fd80-4b18-856d-b2d06481fc7b)
+
+post command--
+![Screenshot 2024-04-11 121745](https://github.com/Nitanshi1/Angular_Class/assets/112059918/7166da09-b737-4ed1-a958-6beacc21869c)
+![Screenshot 2024-04-11 121808](https://github.com/Nitanshi1/Angular_Class/assets/112059918/b6b7747c-6b6a-4d98-9d7b-63df4f1ad3cf)
+
+put command---
+![Screenshot 2024-04-11 120430](https://github.com/Nitanshi1/Angular_Class/assets/112059918/4ab1b6aa-27ca-4d92-a263-4f322317c455)
+
+get command --
+![Screenshot 2024-04-11 120430](https://github.com/Nitanshi1/Angular_Class/assets/112059918/63a53cfb-1b01-48d4-92dc-b2e2782ad88d)
+
+
+
+
+
+
 
 
