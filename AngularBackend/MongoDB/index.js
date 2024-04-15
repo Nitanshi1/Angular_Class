@@ -12,7 +12,8 @@ db.on('error' , ()=>{
 const userSchema = new mongoose.Schema({
     name: String,
     age : Number,
-    email:String
+    email:String,
+    
 })
 
 const User = mongoose.model('User',userSchema);
