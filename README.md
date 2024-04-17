@@ -81,6 +81,25 @@ get command --
 
 
 
+ANGULARTASKBYSIR---
+PHASE 1---POSTMAN(connection to mongoose and mongodb)
+![Screenshot 2024-04-17 150642](https://github.com/Nitanshi1/Angular_Class/assets/112059918/b4a42499-af08-4925-ac7c-5dc90e5d487e)
+![Screenshot 2024-04-17 150825](https://github.com/Nitanshi1/Angular_Class/assets/112059918/92145ac8-fd54-46fc-9fcc-cebc6b4f9226)
+![Screenshot 2024-04-17 150902](https://github.com/Nitanshi1/Angular_Class/assets/112059918/6796b13c-3d22-4d32-a99f-2d2d8352e83f)
+![Screenshot 2024-04-17 150922](https://github.com/Nitanshi1/Angular_Class/assets/112059918/028e77f2-9986-4534-b842-99a5f8c19c28)
+![Screenshot 2024-04-17 151505](https://github.com/Nitanshi1/Angular_Class/assets/112059918/c2dfa709-0d96-483b-845b-9fd6105d37b9)
+
+
+
+PHASE 2 TEMPLATE PHASE--
+
+
+
+
+
+
+
+
 
 
 
