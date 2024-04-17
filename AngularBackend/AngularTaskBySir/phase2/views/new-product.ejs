@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/new-product.css">
 </head>
 <body>
     <form action="/products" method="post">
@@ -14,8 +15,11 @@
        <label for="description">description</label>
         <input type="text" name="description" id="description" required>
         <button type="submit">Submit</button>
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required><br>
+    
     </form>
-    <button>
+    <button type="back">
         <a href="/products">Back</a>
     </button>
     <% if(errors){%>
