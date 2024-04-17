@@ -5,60 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form-Validate</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            text-align: center;
-            font-size: larger;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            margin: 10%;
-            padding: 0;
-            background-color: orange;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-
-        button {
-           padding: 10px;
-            margin: auto;
-            background-color: rgb(225, 232, 47);
-            font-size: large;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        label {
-            font-size: 16px;
-            color: #333;
-        }
-
-        input {
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            width: 200px;
-        }
-    </style>
+    <link rel="stylesheet" href="./formvalid.css">
 </head>
 
 <body>
 
-    <form action="/submit" method="post">
+    <form action="/submit" method="post" class="form" enctype="multipart/form-data">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
+    
         <button type="submit">Submit</button>
-    </form>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required><br>
+    
+    
+</form>
 
     <% if(errors){%>
         <h3>Error(s):</h3>

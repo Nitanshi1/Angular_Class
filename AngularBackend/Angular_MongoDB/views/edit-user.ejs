@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="/users/<%=user.id%>/?_method=PUT" method="post" >
+        <label>Name: </label>
+        <input type="text" id="name" name="name" value="<%=user.name%>" required>
+
+        <label>Age: </label>
+        <input type="number" id="age" name="age" value="<%=user.age%>" required>
+
+        <label>Email: </label>
+        <input type="email" id="email" name="email" value="<%=user.email%>" required>
+        <button type="submit">Submit::</button>
+
+    </form>
+
+    <% if(errors){%>
+        <h3>Error(s):</h3>
+        <ul>
+            <% errors.forEach(error=>{%>
+                <li>
+                    <%= error.msg %>
+                </li>
+                <%})%>
+        </ul>
+        <%}%>
+</body>
+</html>

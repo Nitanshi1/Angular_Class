@@ -4,25 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submission</title>
-    <style>
-        body {
-            text-align: center;
-            margin: 10;
-            padding: 0;
-            background-color: yellowgreen;
-            font-size: larger;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-
-        h1 {
-            color: #333;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="./submissionform.css">
+ 
 </head>
 <body>
-    <h1>Submission Data</h1>
+    <form class="main">
+        <h1>Submission Data</h1>
     <p>Name: <%= name %></p>
     <p>Email: <%= email %></p>
+    <div class="detail">
+        <label for="image">Image: </label>
+        <img src="/<%= imagePath %>" alt="Profile Pic">
+       
+    </form>
+    <a href="/home">Back</a>
+</div>
 </body>
 </html>
