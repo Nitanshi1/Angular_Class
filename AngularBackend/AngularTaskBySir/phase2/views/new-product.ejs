@@ -6,18 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/products/<%=product.id%>/?_method=PUT" method="post">
+    <form action="/products" method="post">
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" value="<%=product.name%>" required>
+        <input type="text" name="name" id="name" required>
         <label for="price">price</label>
-        <input type="number" name="price" id="price" value="<%=product.price%>" required>
+        <input type="number" name="price" id="price" required>
        <label for="description">description</label>
-        <input type="text" name="description" id="description" value="<%=product.description%>" required>
-        <button type="submit">Edit</button>
+        <input type="text" name="description" id="description" required>
+        <button type="submit">Submit</button>
     </form>
     <button>
-    <a href="/products">Back</a>
-</button>
+        <a href="/products">Back</a>
+    </button>
     <% if(errors){%>
         <div class="error">
         <h3>Error(s):</h3>
