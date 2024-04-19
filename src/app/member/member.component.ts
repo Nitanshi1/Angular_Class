@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { MEMBERS } from '../mymembers';
 import { NgFor , NgIf } from '@angular/common';
 import { MemberDetailsComponent } from '../member-details/member-details.component';
-import { MemberService } from '../number.service';
+import { MemberService } from '../member.service';
 import { MessageService } from '../message.service';
 import { RouterModule } from '@angular/router';
 
@@ -25,7 +25,7 @@ export class MemberComponent {
   }
 //commonly used to call service after the constructor is called and intialized
   getMembers(): void{
-   this.memberService.getMembers().subscribe(members =>this.members=members);
+   this.memberService.getMembers().subscribe(mem =>this.members=mem);
   
   }
 //Subscribe reflects that notification is sent

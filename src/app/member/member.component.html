@@ -21,8 +21,8 @@
 <div>
     
     <label for="new-member">Member Name:::</label>
-    <input id="new-member" #memberName>
-    <button type="button" (click)="add(memberName.value)">Add member</button>
+    <input id="new-member" #memberName type="text">
+    <button type="button" (click)="add(memberName.value);memberName.value='' " >Add member</button>
 </div>
 
 

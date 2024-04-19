@@ -1,0 +1,29 @@
+.image{
+    width: 30%;
+    border-radius: 10%;
+    padding:0%;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+
+.save{
+    border: 30%;
+    border-color: red;
+    background-color: chartreuse;
+    margin-left: 2%;
+    padding: 8px;
+}
+
+.goback{
+    border: 30%;
+   border-color: red;
+   background-color: chartreuse;
+   margin-left: 2%;
+   padding: 8px;
+
+
+}

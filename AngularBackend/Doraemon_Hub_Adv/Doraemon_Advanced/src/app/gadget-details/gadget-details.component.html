@@ -1,0 +1,20 @@
+<div class="selected"> 
+    
+    <div *ngIf="selectedgadget">
+        <div><br>
+            <!-- <div><img src="{{selectedgadget.imgpath}}"></div> -->
+            <div><p>gad_id:{{selectedgadget.gad_id}}</p></div>
+            <div><p>name:{{selectedgadget.name}}</p></div>
+            <div><p>work:{{selectedgadget.work}}</p></div>
+        </div>
+        <div>
+            <label><b>Edit:</b></label><br>
+            <input type="text" [(ngModel)]="selectedgadget.name">
+            <input type="text" [(ngModel)]="selectedgadget.work">
+            <button class="save" type="button" (click)="save()">Save</button>
+           </div><br>
+    </div>
+    </div> 
+    <div>
+        <button class ="back"type="button" (click)="goback()">Back</button>
+    </div><hr>

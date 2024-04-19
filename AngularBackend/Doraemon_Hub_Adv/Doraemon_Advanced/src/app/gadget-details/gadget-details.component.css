@@ -1,0 +1,18 @@
+.image{
+    width: 30%;
+    border-radius: 10%;
+    padding:0%;
+}
+.back:hover{
+    background-color: yellowgreen;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 120px;
+}
+.save:hover{
+    background-color: yellowgreen;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 80px;
+    height: 20px;
+}

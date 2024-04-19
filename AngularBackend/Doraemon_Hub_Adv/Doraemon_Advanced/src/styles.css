@@ -1,0 +1,12 @@
+body{
+    text-align:left;
+    background-color: orange;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+.headings:hover{
+    cursor: pointer;
+}
+.links{
+   color: antiquewhite;
+}

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { member } from '../member/member';
-import { MemberService } from '../number.service';
+import { MemberService } from '../member.service';
 import { RouterModule } from '@angular/router';
 
 @Component({

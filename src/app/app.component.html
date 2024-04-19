@@ -1,5 +1,16 @@
 <h1 align="center">{{title}}</h1>
 <a routerLink="/members">MyMembers</a>
 <a routerLink="/dashboard">MyDashboard</a>
+<div>
+    <label for="search">Search..</label>
+    <input type="text" id="search" #membersearch (input)="search(membersearch.value)">
+</div>
+<ul>
+    <li *ngFor="let m of member$ | async">
+        <p>id:{{m.id}}</p>
+      <a routerLink="/detail/{{m.id}}">{{m.name}}</a>
+      
+    </li>
+</ul>
 <router-outlet></router-outlet>
 <app-message></app-message>

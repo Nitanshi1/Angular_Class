@@ -1,0 +1,30 @@
+.delete{
+        border: 30%;
+        border-color: red;
+        background-color: chartreuse;
+        margin-left: 2%;
+        padding: 8px;
+
+}
+.delete:hover{
+    color: red;
+    cursor: pointer;
+    text-emphasis: none;
+}
+.data{
+    background-color: lightblue;
+    width: 90%;
+    height:40%;
+    align-items: left;
+    margin: 1%;
+    padding: 1%;
+  
+
+   
+}
+.back:hover{
+    background-color: yellow;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 120px;
+}

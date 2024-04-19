@@ -1,0 +1,22 @@
+.btn1{
+   border: 30%;
+   border-color: red;
+   background-color: chartreuse;
+   margin-left: 2%;
+   padding: 10px;
+}
+.btn1:hover{
+    color: blue;
+   
+}
+.data{
+    background-color: lightblue;
+    width: 90%;
+    height:40%;
+    align-items: left;
+    margin: 1%;
+    padding: 1%;
+  
+
+   
+}

@@ -1,0 +1,33 @@
+<div class="forms">
+    <form>
+        <fieldset class="abc">
+            <legend class="addlegend"><b>Add </b></legend>
+            <label for="compo">Type:</label>
+            <select id="compo" #opt required>
+                <option></option>
+                <option>characters</option>
+                <option>gadgets</option>
+            </select>
+            <br>
+            <br>
+            <label for="name">Name:</label>
+            <input id="name" type="text" #name required placeholder="Enter the name:">
+            <br>
+            <br>
+            <label id="main">talent/work:</label>
+            <input id="main" type="text" #main required placeholder="Enter the role:">
+            <br>
+            <!-- <br>
+            <label for="image">Image Path:</label>
+            <input id="image" type="url" #image required>
+            <br> -->
+            <br>
+            <button class="add" type="button" (click)="add(opt.value,name.value,main.value) ; opt.value='' ; name.value='' ; main.value='' ">Add</button>
+             <hr>
+            <button  class="back" type="button" (click)="goback()">Back</button>
+        </fieldset>
+       
+    </form>
+    
+</div>
+

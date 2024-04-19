@@ -1,0 +1,74 @@
+body {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+#chat-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+#input {
+    padding: 8px;
+    width: calc(100% - 70px);
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #ffffff;
+}
+
+button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#messages {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.dark-theme {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+.dark-theme li {
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.dark-theme #input {
+    background-color: #444;
+    color: #ffffff;
+}
+
+.dark-theme button {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.dark-theme button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,21 @@
+<div class="selected">
+    <div *ngIf="selectedcharacter" >
+       <div class="main">
+         <!-- <div class="image"><img src="{{selectedcharacter.imgpath}}"></div> -->
+         <div><p>char_id:{{selectedcharacter.char_id}}</p></div>
+         <div><p>name:{{selectedcharacter.name}}</p></div>
+         <div><p>talent:{{selectedcharacter.talent}}</p></div>
+       </div>
+       <div>
+        <label>Edit:</label>
+        <input type="text" [(ngModel)]="selectedcharacter.name">
+        <input type="text" [(ngModel)]="selectedcharacter.talent">
+        <button class="save" type="button" (click)="save()">Save</button>
+       </div>
+    </div>
+ </div>
+ <div>
+    <button class="goback" type="button" (click)="goback()">Back</button>
+ </div>
+
+

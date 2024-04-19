@@ -4,7 +4,7 @@ import { NgFor, NgIf,UpperCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { MemberService } from '../number.service';
+import { MemberService } from '../member.service';
 
 
 @Component({
@@ -27,15 +27,17 @@ export class MemberDetailsComponent {
 //call the getMem function call in the number.service.ts()
  getMem():void{
   const id=Number(this.route.snapshot.paramMap.get('id'));
+  console.log(id);
   this.memberService.getMem(id).subscribe(mem=>this.member=mem);
+  console.log(this.member);
  }
  //reflects on the back button
- goBack(){
+ goback(){
   this.location.back();
  }
  save(): void {
   if(this.member){
-    this.memberService.updateMember(this.member).subscribe(()=> this.goBack());
+    this.memberService.updateMember(this.member).subscribe(()=> this.goback());
   }
 }
 }
