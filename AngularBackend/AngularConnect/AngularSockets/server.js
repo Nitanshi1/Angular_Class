@@ -1,3 +1,6 @@
+///CHAT APPLICATIONNNNNNNNN
+
+
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
@@ -18,7 +21,7 @@ io.on('connection', (socket) => {
         const colorIndex = Object.keys(users).length % colors.length;
         const color = colors[colorIndex];
         users[socket.id] = { username, color };
-        usernames.push(username); // Push the new username into the array before emitting
+        usernames.push(username); // Push the new username into the array before emittin
         io.emit('user joined', { username, color });
         io.emit('usernames', usernames); // Emit the updated usernames array
     });

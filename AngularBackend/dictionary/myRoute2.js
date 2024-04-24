@@ -24,8 +24,6 @@ router.get("/", (req, res) => {
     res.send(members);
 })
 
-
-
     router.get("/:email", (req, res) => {
         const email = req.params.email;
         res.send(members[email]);
