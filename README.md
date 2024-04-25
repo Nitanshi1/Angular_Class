@@ -100,6 +100,19 @@ PHASE 2 TEMPLATE PHASE--
 
 
 
+ANGULAR FULL PRJECT PART!
+![Screenshot 2024-04-24 123555](https://github.com/Nitanshi1/Angular_Class/assets/112059918/9af3189d-6fd1-426b-ac62-8e3fc35bb612)
+![Screenshot 2024-04-24 121804](https://github.com/Nitanshi1/Angular_Class/assets/112059918/e6de6876-d73f-4ed9-8366-dfc64b9e47bb)
+![Screenshot 2024-04-24 121707](https://github.com/Nitanshi1/Angular_Class/assets/112059918/2bda160c-8c6c-4830-a708-a3d04eb34081)
+![Screenshot 2024-04-24 121530](https://github.com/Nitanshi1/Angular_Class/assets/112059918/e76c4491-c751-44a5-80c2-a86af9b1b688)
+
+
+
+
+
+
+
+
 
 
 
