@@ -1,10 +1,10 @@
 const mongoose=require('mongoose');
-const User=require('../models/User');
+// const User=require('../models/User');
 const applicationSchema=new mongoose.Schema({
    user:{
     type:mongoose.Schema.Types.ObjectId,
     required:true,
-    refs:'User'
+    ref:'User'
    },
     appName:{
        type:String,
