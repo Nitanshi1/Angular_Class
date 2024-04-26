@@ -8,7 +8,7 @@ exports.getAllUsers=async()=>{
  exports.addToRestricted= async(email,appid,userid)=>{
     try{
         const admin=await User.findOne({email});
-        const application=await Application.findById(appid);
+        const application=await Applications.findById(appid);
         if(application.user.toString()!==admin._id.toString()){
            throw new Error("Forbidden");
         }

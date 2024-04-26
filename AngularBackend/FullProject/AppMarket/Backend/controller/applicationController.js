@@ -14,14 +14,14 @@ exports.getAllApplications = async (req, res) => {
 
 exports.getApplicationById = async (req, res) => {
     try {
-        const application = await ApplicationService.getApplicationById(req.params.id);
+        const application = await ApplicationService.getApplicationById(req.user_email,req.params.id);
         if (!application) {
             return res.status(404).json({ message: "No application found" });
         }
         res.json(application);
     } catch (error) {
-        console.error('Failed to fetch application:', error);
-        res.status(500).json({ message: "Failed to fetch application" });
+     
+        res.status(500).json({ message: error.message });
     }
 }
 

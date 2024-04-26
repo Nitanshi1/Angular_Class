@@ -16,8 +16,14 @@ exports.getAllApplications = async (category, appName) => {
     }
 }
 
-exports.getApplicationById = async (id) => {
-    return await Application.findById(id);
+exports.getApplicationById = async (email,id) => {
+    const user=await User.findOne({email});
+   const app=await Application.findById(id);
+   if(app.restrictedUser.includes(user._id)){
+      throw new Error('Forbidden');
+   }
+    return app;
+   
 }
 
 exports.createApplication = async (email, newFields) => {

@@ -23,6 +23,7 @@ app.use(session({
 const authRoutes = require('./routes/authRoutes')
 const {authenticate, authorize} = require('./middleware/authMiddleware')
 app.use('/auth', authRoutes);
+
 app.use('/user',authenticate,authorize('admin'),userRoutes);
 app.use('/applications',authenticate, applicationRoutes)
 app.use('/user/favorites', authenticate, authorize('user'), favoritesAppRoutes)
