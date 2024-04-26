@@ -1,8 +1,10 @@
 const ApplicationService = require('../services/applicationServices');
+const favService = require('../services/favoriteAppService');
 
 exports.getAllApplications = async (req, res) => {
     try {
-        const applications = await ApplicationService.getAllApplications();
+        const  {category, appName} = req.query;
+        const applications = await ApplicationService.getAllApplications(category, appName);
         res.json(applications);
     } catch (error) {
         console.error('Failed to fetch applications:', error);
@@ -26,12 +28,14 @@ exports.getApplicationById = async (req, res) => {
 exports.deleteApplication = async (req, res) => {
     try {
         await ApplicationService.deleteApplication(req.user_email, req.params.id);
+        await favService.deleteFromFavorites(req.params.id);
         res.json({ message: "Application deleted successfully" });
     } catch (error) {
-        console.error('Failed to delete application:', error);
+        
         res.status(500).json({ message: "Failed to delete application" });
     }
 }
+
 
 exports.updateApplication = async (req, res) => {
     try {
@@ -54,7 +58,10 @@ exports.createApplication = async (req, res) => {
         }
         res.json(application);
     } catch (error) {
-        console.error('Failed to create application:', error);
+       
         res.status(500).json({ message: "Failed to create application" });
     }
 }
+
+
+

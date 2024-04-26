@@ -1,38 +1,61 @@
-const Application=require('../models/Application');
+const Application = require('../models/Application');
 const User = require('../models/User');
-exports.getAllApplications= async ()=>{
-   const applications =  await Application.find().populate('user');
-   return applications;
+
+exports.getAllApplications = async (category, appName) => {
+    try {
+        let query = {};
+        if (category) {
+            query.genre = category;
+        }
+        if (appName) {
+            query.appName = { $regex: new RegExp(appName, 'i') };
+        }
+        return await Application.find(query).populate('user');
+    } catch (error) {
+        throw new Error('Failed to fetch the applications');
+    }
 }
-exports.getApplicationById= async(id)=>{
-   return await Application.findById(id);
+
+exports.getApplicationById = async (id) => {
+    return await Application.findById(id);
 }
-exports.createApplication= async (email, newFields)=>{
-   const admin = await User.findOne({email});
+
+exports.createApplication = async (email, newFields) => {
+    const admin = await User.findOne({ email });
+    if (!admin) {
+        throw new Error('Admin not found');
+    }
     newFields.user = admin._id;
-    const newApplication=new Application(newFields);
+    const newApplication = new Application(newFields);
     return await newApplication.save();
 }
 
-
-
-exports.updateApplication= async (email, id,updatedFields)=>{
-   const admin = await User.findOne({email});
-   const application = await Application.findById(id);
-   // console.log('Application user: ', application.user)
-   // console.log('Admin Id: ', admin._id);
-   // console.log(application.user !== admin._id);
-   if(application.user.toString() !== admin._id.toString()){
-      throw new Error('Forbidden');
-   }
-   return await Application.findByIdAndUpdate(id, updatedFields, {new:true});
+exports.updateApplication = async (email, id, updatedFields) => {
+    const admin = await User.findOne({ email });
+    if (!admin) {
+        throw new Error('Admin not found');
+    }
+    const application = await Application.findById(id);
+    if (!application) {
+        throw new Error('Application not found');
+    }
+    if (application.user.toString() !== admin._id.toString()) {
+        throw new Error('Forbidden');
+    }
+    return await Application.findByIdAndUpdate(id, updatedFields, { new: true });
 }
-exports.deleteApplication= async(email, id)=>{
-   const admin = await User.findOne({email});
-   const application = await Application.findById(id);
-  
-   if(application.user.toString() !== admin._id.toString()){
-      throw new Error('Forbidden');
-   }
-   return await Application.findByIdAndDelete(id);
-}
+
+exports.deleteApplication = async (email, id) => {
+    const admin = await User.findOne({ email });
+    if (!admin) {
+        throw new Error('Admin not found');
+    }
+    const application = await Application.findById(id);
+    if (!application) {
+        throw new Error('Application not found');
+    }
+    if (application.user.toString() !== admin._id.toString()) {
+        throw new Error('Forbidden');
+    }
+    return await Application.findByIdAndDelete(id);
+};

@@ -16,7 +16,12 @@ const userSchema=new mongoose.Schema({
     type:String,
     enum:['admin','user'],
     default:'user'
-  }
+  },
+  favoriteApplications:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Application'
+
+  }]
 })
 
 userSchema.pre('save', async function(next){

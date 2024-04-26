@@ -6,6 +6,12 @@ const applicationSchema=new mongoose.Schema({
     required:true,
     ref:'User'
    },
+   restrictedUser:[{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:'Application'
+
+}],
+
     appName:{
        type:String,
        required:true
@@ -32,7 +38,17 @@ const applicationSchema=new mongoose.Schema({
     type:String,
     required:true,
     enum:['Games','Beauty','Fashion','Women','Health']
-   }
+   },
+   favCount:{
+    type:Number,
+    default:0
+     },
+    viewCount:{
+    type:Number,
+    default:0,
+}
+
+   
 
 })
 const Application=mongoose.model('Application',applicationSchema);

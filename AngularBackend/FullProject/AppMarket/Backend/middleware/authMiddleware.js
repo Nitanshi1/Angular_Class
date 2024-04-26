@@ -1,6 +1,7 @@
 
 const jwt=require('jsonwebtoken');
 let User=require('../models/User')
+let Application = require('../models/Application')
 exports.authenticate=(req,res,next)=>{
     if(req.session.authorization){
       const token=req.session.authorization['token'];
@@ -29,4 +30,23 @@ exports.authorize=(requiredRole)=>async(req,res,next)=>{
     return res.status(403).json({message:"Forbidden"});
   }
   next();
+}
+exports.viewCount=async(req,res,next)=>{
+  let app=await Application.findById(req.params.id);
+  if(!app){
+    return res.status(401).json({message:"Application not found"});
+  }
+  app.viewCount=app.viewCount+1;
+  app.save();
+  next();
+}
+
+exports.favCount=async(req,res,next)=>{
+  let app=await Application.findById(req.params.id);
+  if(!app){
+    return res.status(401).json({message:"Application not found"});
+  }
+  app.favCount=app.favCount+1;
+  app.save();
+  next();
 }
