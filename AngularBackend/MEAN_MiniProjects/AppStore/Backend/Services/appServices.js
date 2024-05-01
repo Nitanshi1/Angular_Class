@@ -2,28 +2,28 @@ const Application = require('../Models/Application');
 const User = require('../Models/User');
 const Comment = require('../Models/Comment'); // Add Comment model require
 
-exports.getAllApplications = async (filters) => {
+exports.getAllApplications = async () => {
     try {
-        let query = { visibility: true };
-        if (filters) {
-            if (filters.category) {
-                query.genre = filters.category;
-            }
-            if (filters.appName) {
-                query.appName = { $regex: new RegExp(filters.appName, 'i') };
-            }
-            if (filters.minRating && filters.maxRating) {
-                query.ratings = { $gte: filters.minRating, $lte: filters.maxRating };
-            } else if (filters.minRating) {
-                query.ratings = { $gte: filters.minRating };
-            } else if (filters.maxRating) {
-                query.ratings = { $lte: filters.maxRating };
-            }
-        }
+        // let query = { visibility: true };
+        // if (filters) {
+        //     if (filters.category) {
+        //         query.genre = filters.category;
+        //     }
+        //     if (filters.appName) {
+        //         query.appName = { $regex: new RegExp(filters.appName, 'i') };
+        //     }
+        //     if (filters.minRating && filters.maxRating) {
+        //         query.ratings = { $gte: filters.minRating, $lte: filters.maxRating };
+        //     } else if (filters.minRating) {
+        //         query.ratings = { $gte: filters.minRating };
+        //     } else if (filters.maxRating) {
+        //         query.ratings = { $lte: filters.maxRating };
+        //     }
+        // }
         // Perform a database query and return the result
-        return await Application.find(query);
+        return await Application.find();
     } catch (error) {
-        throw error;
+        throw new Error(error);
     }
 };
 
@@ -39,29 +39,30 @@ exports.getApplicationById = async (appId) => {
     }
 };
 
-exports.createApplication = async (userId, newFields) => {
+exports.createApplication = async (email, newFields) => {
     try {
-        newFields.user = userId; // Corrected assignment
+        const user=await User.findOne({email});
+        newFields.user = user._id; // Corrected assignment
         const newApplication = new Application(newFields);
         const createdApplication = await newApplication.save(); // Renamed variable for consistency
         return createdApplication;
     } catch (error) {
-        throw error;
+        throw new Error (error);
     }
 };
 
 
 
-exports.updateApplication = async (userId, appId, updatedFields) => {
+exports.updateApplication = async (email, appId, updatedFields) => {
     try {
         const application = await Application.findById(appId);
 
-        
+        const user=await User.findOne({email})
         if (!application) {
             throw new Error('Application not found');
         }
         
-        if (application.user.toString() !== userId) {
+        if (application.user.toString() !== user._id) {
             throw new Error('Unauthorized');
         }
         if(updatedFields.visibility === false && application.visibility === true){
@@ -78,13 +79,14 @@ exports.updateApplication = async (userId, appId, updatedFields) => {
     }
 };
 
-exports.deleteApplication = async (userId, appId) => {
+exports.deleteApplication = async (email, appId) => {
     try {
+        const user=await User.findOne({email})
     const application = await Application.findById(appId);
     if (!application) {
         throw new Error('Application not found');
     }
-    if (application.user.toString() !== userId) {
+    if (application.user.toString() !== user._id) {
         throw new Error('Unauthorized');
     }
 

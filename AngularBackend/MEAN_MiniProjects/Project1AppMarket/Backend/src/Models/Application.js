@@ -2,11 +2,9 @@ const mongoose=require('mongoose');
 const applicationSchema=new mongoose.Schema({
    user:{
     type:mongoose.Schema.Types.ObjectId,
-    required:true,
+    // required:true,
     ref:'User'
    },
-
-
     appName:{
        type:String,
        required:true,
@@ -25,12 +23,7 @@ const applicationSchema=new mongoose.Schema({
     type:String,
     default:"1.0"
    },
-   ratings:{
-    type:Number,
-    min:0,
-    max:5,
-    default:0
-   },
+
    genre:{
     type:String,
     required:true,
@@ -45,26 +38,28 @@ const applicationSchema=new mongoose.Schema({
     type: Boolean,
     default: true
    }
-
-   
-
 },{
     timestamps:true,
     toJSON: {virtuals: true},
     toObject:{ virtuals: true}
 });
 
-applicationSchema.virtual('comments',{
+applicationSchema.virtual('comment',{
     'ref':'Comment',
     localField:'_id',
     foreignField:'application'
 });
 
 applicationSchema.virtual('averageRating').get(function(){
+    
+    if(!this.comment){
+        return 0;
+    }
        const totalRatings = this.comment.length;
+
        if(totalRatings === 0 ) return 0;
 
-       const totalSum = this.comment.reduce((sum, comment) => sum + comment.ratings,0);
+       const totalSum = this.comment.reduce((sum, comment) => sum + comment.rating,0);
        return totalSum/ totalRatings;
 });
 

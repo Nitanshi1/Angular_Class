@@ -1,14 +1,23 @@
 const Comment = require('../Models/Comment');
+const User = require('../Models/User');
 
-// Function to create a new comment
-exports.createComment = async (userId, appId, content, rating) => {
+exports.createComment = async (email, appId, content, rating) => {
     try {
+       
+        const user = await User.findOne({ email: req.user_email });
+        if (!user) {
+            throw new Error('User not found');
+        }
+
+        
         const newComment = new Comment({
-            user: userId,
+            user: req.user_email, 
             application: appId,
-            content: content,
+            content: content, 
             rating: rating
         });
+        
+      
         await newComment.save();
         return newComment;
     } catch (error) {
@@ -16,7 +25,8 @@ exports.createComment = async (userId, appId, content, rating) => {
     }
 };
 
-// Function to update an existing comment
+
+
 exports.updateComment = async (commentId, content, rating) => {
     try {
         const updatedComment = await Comment.findByIdAndUpdate(

@@ -23,7 +23,7 @@ const userSchema=new mongoose.Schema({
     ref:'Application'
 
   }]
-},{
+},{ timestamps:true,
   toJSON: {virtuals: true},
   toObject : { virtuals: true}
 });

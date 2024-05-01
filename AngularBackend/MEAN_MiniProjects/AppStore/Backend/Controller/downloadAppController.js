@@ -24,8 +24,8 @@ exports.deleteFromDownload = async (req, res) => {
 
 exports.uninstallApp = async (req, res) => {
     try {
-        const { userId, appId } = req.params;
-        await uninstallApp(userId, appId);
+        const { email, appId } = req.params;
+        await uninstallApp(email, appId);
         res.json({ message: 'Application uninstalled successfully' });
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -34,8 +34,8 @@ exports.uninstallApp = async (req, res) => {
 
 exports.getAllDownloadedApps = async (req, res) => {
     try {
-        const { userId } = req.params;
-        const downloadedApps = await getAllDownloadedApps(userId);
+        const {email } = req.params;
+        const downloadedApps = await getAllDownloadedApps(email);
         res.json(downloadedApps);
     } catch (error) {
         res.status(500).json({ error: error.message });

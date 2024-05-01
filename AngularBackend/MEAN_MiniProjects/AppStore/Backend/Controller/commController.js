@@ -1,17 +1,17 @@
 const commentService = require('../Services/commServices');
 
-// Controller function to create a new comment
+
 exports.createComment = async (req, res) => {
     try {
-        const { userId, appId, content, rating } = req.body;
-        const newComment = await commentService.createComment(userId, appId, content, rating);
+        const {email, appId, content, rating } = req.body;
+        const newComment = await commentService.createComment(email, appId, content, rating);
         res.status(201).json(newComment);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 };
 
-// Controller function to update an existing comment
+
 exports.updateComment = async (req, res) => {
     try {
         const { commentId } = req.params;
@@ -23,7 +23,7 @@ exports.updateComment = async (req, res) => {
     }
 };
 
-// Controller function to delete a comment
+
 exports.deleteComment = async (req, res) => {
     try {
         const { commentId } = req.params;
@@ -34,7 +34,7 @@ exports.deleteComment = async (req, res) => {
     }
 };
 
-// Controller function to get all comments for a specific application
+
 exports.getCommentsForApplication = async (req, res) => {
     try {
         const { appId } = req.params;

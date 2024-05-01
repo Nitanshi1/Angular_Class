@@ -30,14 +30,13 @@ exports.deleteFromDownload = async (id) => {
     }
 }
 
-exports.uninstallApp = async(userId, appId) => { // Corrected function name
+exports.uninstallApp = async(email, appId) => { 
     try {
         const user = await User.findById(userId);
         if (!user) {
             throw new Error('User not found');
         }
-        // You can remove the application from user's download list here
-        // For example:
+    
         user.downloadApplications = user.downloadApplications.filter(app => app.toString() !== appId);
         await user.save();
     } catch (error) {
@@ -45,14 +44,13 @@ exports.uninstallApp = async(userId, appId) => { // Corrected function name
     }
 }
 
-exports.getAllDownloadedApps = async(userId) => {
+exports.getAllDownloadedApps = async(email) => {
     try {
-        const user = await User.findById(userId).populate('downloadApplications'); // Corrected field name
-        if (!user) {
+        const user = await User.findOne(email).populate('downloadApplications'); 
             throw new Error('User not found');
+            return user.downloadApplications;
         }
-        return user.downloadApplications;
-    } catch (error) {
+    catch (error) {
         throw error;
     }
 }
