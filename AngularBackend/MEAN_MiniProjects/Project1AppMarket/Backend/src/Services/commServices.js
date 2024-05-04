@@ -1,7 +1,19 @@
 const Comment = require("../Models/Comment");
-exports.createComment=async(id,newFields)=>{
+const Application = require("../Models/Application")
+exports.getComment=async(id)=>{
     try{
+       
+     return await Application.findById(id).comments;
+    }
+    catch(error){
+     throw new Error(error);
+    }
+ }
+ exports.createComment=async(id, newFields, userid)=>{
+    try{
+        newFields.user=userid;
         newFields.application=id;
+       
         const comment=new Comment(newFields);
      return await comment.save();
     }
@@ -9,3 +21,14 @@ exports.createComment=async(id,newFields)=>{
      throw new Error(error);
     }
  }
+
+ exports.deleteComment=async(id)=>{
+    try{
+        
+     return await Comment.deleteOne({_id:id});
+    }
+    catch(error){
+     throw new Error(error);
+    }
+ }
+

@@ -18,7 +18,7 @@ const userSchema=new mongoose.Schema({
     default:'user'
   },
 
-  downloadApplications:[{
+  downloadedApplications:[{
     type:mongoose.Schema.Types.ObjectId,
     ref:'Application'
 

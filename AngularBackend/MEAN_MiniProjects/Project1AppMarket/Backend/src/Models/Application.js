@@ -2,7 +2,7 @@ const mongoose=require('mongoose');
 const applicationSchema=new mongoose.Schema({
    user:{
     type:mongoose.Schema.Types.ObjectId,
-    // required:true,
+    required:true,
     ref:'User'
    },
     appName:{
@@ -66,6 +66,11 @@ applicationSchema.virtual('averageRating').get(function(){
 
 applicationSchema.methods.incrementDownloadCount = function(){
     this.downloadCount++;
+    return this.save();
+};
+
+applicationSchema.methods.decrementDownloadCount = function(){
+    this.downloadCount--;
     return this.save();
 };
 const Application=mongoose.model('Application',applicationSchema);

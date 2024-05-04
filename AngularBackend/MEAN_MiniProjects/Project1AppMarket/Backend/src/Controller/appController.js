@@ -2,7 +2,7 @@ const applicationServices = require('../Services/appServices');
 
 exports.getAllApplications = async (req, res) => {
     try {
-        const applications = await applicationServices.getAllApplications();
+        const applications = await applicationServices.getAllApplications(req.query);
  
          if(!applications){
             res.json("applications not found.")
@@ -31,7 +31,7 @@ exports.createApplication = async (req, res) => {
     try {
         
         const newApplication = req.body; 
-        const createdApplication = await applicationServices.createApplication( newApplication);
+        const createdApplication = await applicationServices.createApplication( newApplication,req.user._id);
         if(!newApplication){
             res.json("application not createed.")
          }

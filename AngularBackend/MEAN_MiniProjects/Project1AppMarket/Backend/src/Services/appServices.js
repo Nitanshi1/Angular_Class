@@ -1,10 +1,20 @@
+const Comment = require('../Models/Comment');         
 const Application = require('../Models/Application');
+const User = require('../Models/User');
 
 
-exports.getAllApplications = async () => {
+exports.getAllApplications = async (filters) => {
     try {
-
-        return await Application.find().populate('comment');
+        const {category, appName} = filters;
+        let query = {};
+        if (category) {
+            query.genre = category;
+        }
+        if (appName) {
+            query.appName = { $regex: new RegExp(appName, 'i') };
+        }
+        query.visibility=true;
+        return await Application.find(query).populate('comment');
     } catch (error) {
         throw new Error(error);
     }
@@ -18,9 +28,9 @@ exports.getApplicationById = async (id) => {
     }
 };
 
-exports.createApplication = async (newFields) => {
+exports.createApplication = async (newFields, id) => {
     try {
-       
+        newFields.user=id;
         const newApplication = new Application(newFields);
         return await newApplication.save(); 
        
@@ -33,6 +43,10 @@ exports.createApplication = async (newFields) => {
 
 exports.updateApplication = async (id, updatedFields) => {
     try {
+
+        const application = Application.findById(id);
+        if(application.visibility==true && updatedFields.visibility == false)
+        await User.updateMany({downloadedApplications:id},{$pull:{downloadedApplications:id}});
        return await Application.findByIdandUpdate(id, updatedFields);
 
       
@@ -44,9 +58,12 @@ exports.updateApplication = async (id, updatedFields) => {
 
 exports.deleteApplication = async (id) => {
     try {
+
+        await Comment.deleteMany({application:id});
+        await User.updateMany({downloadedApplications:id},{$pull:{downloadedApplications:id}});
          return await Application.findByIdAndDelete(id);
    
 } catch (error) {
-    throw error;
+    throw new Error (error);
 }     
 };
