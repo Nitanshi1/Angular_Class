@@ -1,7 +1,9 @@
 const playlistService=require('../service/playlistService')
 exports.getAllPlaylist=async(req,res)=>{
     try{
-        const playlist=await playlistService.getAllPlayList();
+        console.log(req.user._id);
+
+        const playlist=await playlistService.getAllPlayList(req.user._id);
        if(!playlist){
          res.json("playlist not found");
        }
@@ -14,7 +16,8 @@ exports.getAllPlaylist=async(req,res)=>{
 }
 exports.getPlaylistById=async(req,res)=>{
     try{
-        const playlist=await playlistService.getPlayListById(req.params.id);
+        const songName=req.query.name;
+        const playlist=await playlistService.getPlayListById(req.params.id,songName);
        if(!playlist){
          res.json("playlist not found");
        }
@@ -27,9 +30,9 @@ exports.getPlaylistById=async(req,res)=>{
 }
 exports.createplaylist=async(req,res)=>{
     try{
-        const Playlist=await playlistService.createPlaylist(req.body);
+        const Playlist=await playlistService.createPlaylist(req.body,req.user._id);
        if(!Playlist){
-         res.json("Playlist not created");
+         res.json("Playlist is not created");
        }
        res.json(Playlist);
     }

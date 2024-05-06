@@ -22,6 +22,10 @@ const songsSchema = new mongoose.Schema({
         type:String,
         required:true
        },
+    visibility:{
+        type:Boolean,
+        default:true
+    }
 
 },
 {
