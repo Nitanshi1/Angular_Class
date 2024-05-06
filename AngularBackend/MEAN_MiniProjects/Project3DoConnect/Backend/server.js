@@ -7,6 +7,7 @@ const QuestionRoute=require('./src/routes/QuestionRoute');
 const AnswerRoute=require('./src/routes/AnswerRoute')
 const CommentRoute=require('./src/routes/CommentRoute')
 const authRoute=require('./src/routes/authRoute')
+const userRoute = require('./src/routes/UserRoute');
 const {authenticateUser}=require('./src/middleware/authMiddleware')
 require('dotenv').config()
 const app=express();
@@ -23,6 +24,7 @@ app.use(bodyparser.json());
 app.use('/question/answer',authenticateUser,AnswerRoute);
 app.use('/question/answers/comment',authenticateUser,CommentRoute);
 app.use('/question',authenticateUser,QuestionRoute);
+app.use('/users',authenticateUser,userRoute);
 app.use('/auth',authRoute);
 const port=process.env.PORT
 app.listen(port,()=>{

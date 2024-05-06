@@ -2,7 +2,8 @@ const questionService=require('../services/QuestionService');
 exports.getAllQuestions=async (req,res)=>{
     try{
 
-      const questions=await questionService.getAllQuestions();
+      const question = req.query.search;
+      const questions=await questionService.getAllQuestions(question);
       if(!questions){
         res.status(404).json({message:"Failed to get Questions"})
       }

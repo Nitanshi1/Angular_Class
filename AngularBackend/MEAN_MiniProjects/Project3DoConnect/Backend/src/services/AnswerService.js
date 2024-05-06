@@ -22,9 +22,9 @@ exports.getAnswerById=async(id)=>{
         throw new Error("Failed to fetch answer.")
     }
 }
-exports.createAnswer=async(id,FieldsValue, userid)=>{
+exports.createAnswer=async(id,FieldsValue, id2)=>{
     try{
-        FieldsValue.user=userid;
+        FieldsValue.user=id2;
         FieldsValue.question=id;
       const answer=new Answer(FieldsValue);
       return (await answer.save());
