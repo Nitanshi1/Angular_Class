@@ -3,7 +3,7 @@ const Application = require("../Models/Application")
 exports.getComment=async(id)=>{
     try{
        
-     return await Application.findById(id).comments;
+     return await Application.findById(id).comment;
     }
     catch(error){
      throw new Error(error);

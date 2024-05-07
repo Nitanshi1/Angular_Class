@@ -10,7 +10,7 @@ router.post('/',authorizeUser('admin') ,applicationController.createApplication)
 router.delete('/:id',authorizeUser('admin'),authorizeCreator,applicationController.deleteApplication);
 router.post('/comment/:id',commentController.createComment)
 router.delete('/comment/delete/:id',commentController.deleteComment)
-router.get('/comment/:id',commentController.getComments)
+router.get('/comment/:id',commentController.getComment)
 module.exports=router;
 
 

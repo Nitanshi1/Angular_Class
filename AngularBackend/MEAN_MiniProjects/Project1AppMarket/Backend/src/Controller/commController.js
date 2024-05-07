@@ -1,7 +1,7 @@
 const commServices=require('../Services/commServices');
-exports.getComments=async(req,res)=>{
+exports.getComment=async(req,res)=>{
     try{
-        const comment=await commServices.getCommentsComment(req.params.id);
+        const comment=await commServices.getComment(req.params.id);
        if(!comment){
          res.json("comment not created");
        }
