@@ -56,3 +56,28 @@ exports.deleteTrail = async (id) => {
         throw new Error(err.message);
     }
 };
+exports.filter=async(filter)=>{
+    try{
+       const query={};
+       const {difficulty,minLength,maxLength,minElevation,maxElevation}=filter  
+       if(difficulty){
+          query.difficulty={$regex:new RegExp(difficulty,'i')}
+       }
+       if(minLength){
+          query.length={$gte:minLength}
+       }
+       if(maxLength){
+          query.length={$lte:maxLength}
+       }
+       if(minElevation){
+          query.elevationGain={$gte:minElevation}
+       }
+       if(maxElevation){
+          query.elevationGain={$lte:maxElevation}
+       }
+     return await Trail.find(query).populate('comments').populate('reviews');
+    }
+    catch(error){
+     throw new Error(error);
+    }
+ }
