@@ -90,5 +90,15 @@ exports.filter=async(req,res)=>{
     catch(error){
         res.json({message:error.message});
     }
-
 }
+exports.getTopRatedTrails = async (req, res) => {
+    try {
+        
+        const topRatedTrails = await trailService.getTopRatedTrails();
+        res.json(topRatedTrails);
+    } catch (error) {
+        
+        res.json({ message: error.message });
+    }
+};
+

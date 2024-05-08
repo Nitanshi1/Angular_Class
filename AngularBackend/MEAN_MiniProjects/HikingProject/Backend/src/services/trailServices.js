@@ -81,3 +81,13 @@ exports.filter=async(filter)=>{
      throw new Error(error);
     }
  }
+
+ exports.getTopRatedTrails = async () => {
+    try {
+      
+        const topRatedTrails = await Trail.find().sort({ averagRating: -1 }).limit(1); 
+        return topRatedTrails;
+    } catch (error) {
+        throw new Error(error);
+    }
+};

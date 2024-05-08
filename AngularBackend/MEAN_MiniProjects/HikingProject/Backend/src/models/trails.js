@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const reviews = require('./reviews');
 const trailSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -44,5 +45,18 @@ const trailSchema = new mongoose.Schema({
         foreignField: 'trail',
     });
 
+
+    trailSchema.virtual('averageRating').get(function(){
+        if(!this.reviews){
+            return 0;
+        }
+           const totalRatings = this.reviews.length;
+    
+           if(totalRatings === 0 ) return 0;
+    
+           const totalSum = this.reviews.reduce((sum, reviews) => sum + reviews.rating,0);
+           return totalSum/ totalRatings;
+    });
+    
 const Trail= mongoose.model('Trail', trailSchema);
 module.exports = Trail;
