@@ -7,4 +7,4 @@ router.get('/:id',songController.getSongById)
 router.post('/',authorizeUser('admin'),songController.createSong)
 router.put('/:id',authorizeUser('admin'),songController.updateSong)
 router.delete('/:id',authorizeUser('admin'),songController.deleteSong)
-module.exports=router;
+module.exports=router; 
