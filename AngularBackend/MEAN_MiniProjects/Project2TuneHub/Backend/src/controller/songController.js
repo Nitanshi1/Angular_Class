@@ -28,6 +28,7 @@ exports.getSongById=async(req,res)=>{
 exports.createSong=async(req,res)=>{
     try{
         const song=await songService.createSong(req.body);
+        console.log(song)
        if(!song){
          res.json("song not created");
        }

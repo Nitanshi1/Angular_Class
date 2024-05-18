@@ -36,6 +36,7 @@ exports.createComment=async(id,FieldsValue, userid)=>{
 exports.likeComment=async(id)=>{
     try{
       const comment=await Comment.findById(id);
+      console.log(comment)
       comment.likecount+=1;
       return await comment.save();
       

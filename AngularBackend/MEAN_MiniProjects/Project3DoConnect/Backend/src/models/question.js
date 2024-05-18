@@ -9,13 +9,18 @@ const questionSchema=new mongoose.Schema({
         type:String,
         required:true
     },
+    status:{
+        type:String,
+        enum:["doubtful","solved"],
+        default:"doubtful"
+    },
     isActive:{
         type:Boolean,
         default:true
     },
     approved:{
         type:Boolean,
-        default:false
+        default:true
     },
    
    

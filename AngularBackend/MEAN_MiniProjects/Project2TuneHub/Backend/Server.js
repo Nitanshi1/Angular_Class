@@ -21,8 +21,8 @@ mongoose.connect(process.env.MONGODB_URI).then(()=>{
 
 
 app.use('/playlists', authenticateUser, playlistRoutes);
-app.use('/auth', authRoutes);
-app.use('/songs', songRoutes);
+app.use('/auth',authenticateUser, authRoutes);
+app.use('/songs',authenticateUser, songRoutes);
 
 const port=process.env.PORT;
 app.listen(port,()=>{

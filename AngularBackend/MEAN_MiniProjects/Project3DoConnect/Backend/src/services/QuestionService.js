@@ -2,7 +2,7 @@ const Answer = require("../models/answer");
 const Comment = require("../models/comment");
 const Question=require("../models/question");
 const User = require("../models/user");
-exports.getAllQuestions=async()=>{
+exports.getAllQuestions=async(question)=>{
     try{
       const query={}
       if(question){

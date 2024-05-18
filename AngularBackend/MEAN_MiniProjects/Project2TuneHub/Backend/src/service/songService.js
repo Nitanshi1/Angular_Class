@@ -18,7 +18,9 @@ exports.getAllSongs=async()=>{
   exports.createSong=async(newFields)=>{
      try{
          const song=new Songs(newFields);
-      return await song.save();
+         console.log(await song.save());
+         return await song.save();
+         
      }
      catch(error){
       throw new Error(error);
